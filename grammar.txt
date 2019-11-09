@@ -1,0 +1,49 @@
+Program -> program ID’ Block .
+Block -> Compound_Statement
+Block -> Var_Declaration_Section Compound_Statement
+Var_Declaration_Section -> var Var_Declaration’
+Var_Declaration’ -> Var_Declaration
+Var_Declaration’ -> Var_Declaration ; Var_Declaration’
+Var_Declaration -> ID’ : Type
+ID’ -> id  
+ID’ -> id ID’
+Type -> integer
+Type -> boolean
+Compound_Statement -> begin Statement’ end 
+Statement’ -> Statement
+Statement’ -> Statement ; Statement’
+Statement -> Simple_Statement
+Statement -> Structured_Statement
+Simple_Statement -> Assignment_Statement
+Simple_Statement -> Read_Statement
+Simple_Statement -> Write_Statement
+Assignment_Statement -> ID’ := Expression
+Read_Statement -> read ID’
+Write_Statement -> write ID’
+Write_statement -> write Literal
+Structured_Statement -> If_Statement
+Structured_Statement -> While_Statement
+Structured_Statement -> Compound_Statement
+If_Statement -> if Boolean_Expression then Statement
+If_Statement -> if Boolean_Expression then Statement else Statement
+While_Statement -> while Boolean_Expression do Statement
+Expression -> Arithmetic_Expression
+Expression -> Boolean_Expression
+Arithmetic_Expression -> Term  
+Arithmetic_Expression -> Arithmetic_Expression + Term
+Arithmetic_Expression -> Arithmetic_Expression - Term
+Term -> Factor
+Term -> Term * Factor
+Factor -> id
+Factor -> Integer_Literal
+Literal -> Integer_Literal
+Literal -> Boolean_Literal
+Integer_Literal -> digit
+Boolean_Literal -> true
+Boolean_Literal -> false
+Boolean_Expression -> Boolean_Literal
+Boolean_Expression -> Arithmetic_Expression > Arithmetic_Expression
+Boolean_Expression -> Arithmetic_Expression >= Arithmetic_Expression
+Boolean_Expression -> Arithmetic_Expression = Arithmetic_Expression
+Boolean_Expression -> Arithmetic_Expression <= Arithmetic_Expression
+Boolean_Expression -> Arithmetic_Expression < Arithmetic_Expression
